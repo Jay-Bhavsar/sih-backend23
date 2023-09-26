@@ -6,7 +6,13 @@ import {ref, onValue, set, push} from "firebase/database";
 
 const app = express();
 app.use(express.json())
-app.use(cors())
+app.use(
+    cors({
+        origin: true,
+        credentials: true
+    })
+);
+
 // app.use(helmet())
 
 app.post("/job", (req, res) => {
